@@ -23,7 +23,6 @@ const authProvider = (apiUrl: string): AuthProvider => ({
     },
     checkAuth: ({ token }) => {
         const url = `${apiUrl}/auth/check-auth`
-        // debugger
 
         if (storage.get(tokenStorageKey)) {
             return _.get(url)({ data: { token } })
@@ -46,7 +45,6 @@ const authProvider = (apiUrl: string): AuthProvider => ({
                 return Promise.reject(new Error('Your session has expired. Please login again.'))
             })
             .then(({ user }) => {
-                
                 return { ...user, fullName: user.name }
             })
     },

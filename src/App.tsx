@@ -16,6 +16,7 @@ function App() {
             dataProvider={dataProvider(apiUrl)}
             authProvider={authProvider(apiUrl)}
             menu={menu}
+
             // themePresets={{ light: themeLight, dark: themeDark }}
         >
             <Routes />

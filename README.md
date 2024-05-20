@@ -1,5 +1,7 @@
 # Admiral Starter Kit
 
+node -v # v20.3.0
+
 ## ⌨️ Production
 
 ```bash
@@ -28,26 +30,26 @@ $ npm run dev
 
 ---
 
-post '/admin/auth/login' do
-status 200
-{ token: 'some_token' }.to_json
-end
+    post '/admin/auth/login' do
+    status 200
+    { token: 'some_token' }.to_json
+    end
 
 ---
 
-get '/admin/auth/check-auth' do
-{ auth: false }.to_json
-end
+    get '/admin/auth/check-auth' do
+    { auth: false }.to_json
+    end
 
 ---
 
-get '/admin/auth/get-identity' do
-user_data = { email: 'admin@dev.family',
-id: 1,
-name: 'Dev Family',
-password: '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8',
-role: 'admin' }
-{ user: { \*\*user_data } }.to_json
-end
+    get '/admin/auth/get-identity' do
+    user_data = { email: 'admin@dev.family',
+    id: 1,
+    name: 'Dev Family',
+    password: '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8',
+    role: 'admin' }
+    { user: { \*\*user_data } }.to_json
+    end
 
 ---

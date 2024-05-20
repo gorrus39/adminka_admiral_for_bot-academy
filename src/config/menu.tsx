@@ -4,8 +4,8 @@ import { Menu, MenuItemLink, SubMenu } from '@devfamily/admiral'
 const CustomMenu = () => {
     return (
         <Menu>
-            {/* <MenuItemLink name="Users" to="/users" icon="FiUser" />
-            <MenuItemLink name="Targets" to="/targets" icon="FiUser" />        
+            <MenuItemLink name="Пользователи" to="/users" icon="FiUser" />
+            {/*<MenuItemLink name="Targets" to="/targets" icon="FiUser" />        
             <MenuItemLink icon="FiCircle" name="Base CRUD" to="/base-crud" />
             <MenuItemLink icon="FiStar" name="Advanced Edit Page" to="/advanced-edit-page" />
             <MenuItemLink icon="FiFilter" name="Quick Filters" to="/quick-filters" />

@@ -1,0 +1,25 @@
+//  в модальном окне, чтоб было выше бэкграунда
+.admiral-picker-dropdown {
+    z-index: 2000 !important;
+}
+.admiral-picker-now {
+    display: none;
+}
+a[href='/users/create'] {
+    display: none !important;
+}
+
+// удаляем лишнее в dateTimePicker
+.users-send-messages {
+    .tox-statusbar {
+        display: none !important;
+    }
+    .form-errors {
+        bottom: -23px;
+        position: absolute;
+        color: red;
+    }
+    .upload-file-errors {
+        bottom: -8px;
+    }
+}

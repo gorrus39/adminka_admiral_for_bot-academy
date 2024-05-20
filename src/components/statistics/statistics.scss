@@ -1,0 +1,29 @@
+@mixin statistic-block-item {
+    border-radius: 10px;
+    padding: 10px;
+    width: max-content;
+}
+
+.statistics {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .first-block {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        &_item {
+            @include statistic-block-item();
+            background-color: #cccccc;
+        }
+    }
+    .second-block {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        &_item {
+            @include statistic-block-item();
+            background-color: #b0b0b0;
+        }
+    }
+}
