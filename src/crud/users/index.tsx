@@ -1,8 +1,6 @@
+import './index.scss'
 import {
     createCRUD,
-    TextInput,
-    PasswordInput,
-    SelectInput,
     Button,
     Editor,
     UploadFile,
@@ -10,25 +8,13 @@ import {
     Upload,
     DatePicker,
     AjaxSelectInput,
-    BooleanInput,
-    Pagination,
     Drawer,
     Tabs,
-    Table,
 } from '@devfamily/admiral'
-import { FiEye, FiCameraOff } from 'react-icons/fi'
+import { FiEye } from 'react-icons/fi'
 
-import React, {
-    Dispatch,
-    Reducer,
-    SetStateAction,
-    useCallback,
-    useMemo,
-    useReducer,
-    useState,
-} from 'react'
+import React, { Dispatch, Reducer, SetStateAction, useCallback, useReducer, useState } from 'react'
 import { FiUpload } from 'react-icons/fi'
-import './index.scss'
 import { OpenModalButton } from './openModalButton'
 import { WrapBootstrapForm } from './wrapBootstrapForm'
 import _ from '@/src/config/request'
@@ -62,6 +48,9 @@ export const CRUD = createCRUD({
                 title: '@Username',
                 dataIndex: 'username',
                 key: 'username',
+                // render: (value, record, index) => {
+                //     return <span>value</span>
+                // },
             },
             {
                 title: 'Сумма пополнений',
@@ -104,10 +93,14 @@ export const CRUD = createCRUD({
                         >
                             <Tabs defaultActiveKey="1" type="card">
                                 <Tabs.TabPane tab="Переходы по UTM" key="1">
-                                    <InfoTabUtms {...record} />
+                                    {record.utms.map((utm, key) => (
+                                        <dd key={key}>{utm.name}</dd>
+                                    ))}
                                 </Tabs.TabPane>
                                 <Tabs.TabPane tab="Приобретённые продукты" key="2">
-                                    <InfoTabProducts {...record} />
+                                    {record.utms.map((utm, key) => (
+                                        <dd key={key}>{utm.name}</dd>
+                                    ))}
                                 </Tabs.TabPane>
                             </Tabs>
                         </Drawer>
@@ -127,7 +120,7 @@ export const CRUD = createCRUD({
         },
     },
     filter: {
-        topToolbarButtonText: 'Фильтр',
+        topToolbarButtonText: 'Фильтры',
         fields: (
             <>
                 <AjaxSelectInput
@@ -298,28 +291,4 @@ const useDrawer = (): [boolean, () => void, () => void] => {
     }, [])
 
     return [visible, show, close]
-}
-
-function InfoTabUtms(record: TgAccount) {
-    return (
-        <>
-            {record.utms.map((utm, key) => (
-                <>
-                    <dd key={key}>{utm.name}</dd>
-                </>
-            ))}
-        </>
-    )
-}
-
-function InfoTabProducts(record: TgAccount) {
-    return (
-        <>
-            {record.products.map((utm, key) => (
-                <>
-                    <dd key={key}>{utm.name}</dd>
-                </>
-            ))}
-        </>
-    )
 }
