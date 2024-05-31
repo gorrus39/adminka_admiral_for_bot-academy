@@ -1,4 +1,4 @@
-import Statistics from '@/src/components/statistics/statistics'
+import Statistics from '@/src/components/statistics'
 import React from 'react'
 
 const Home: React.FC = () => {

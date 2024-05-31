@@ -13,6 +13,14 @@ set :allow_methods, 'GET,HEAD,POST,OPTIONS'
 set :allow_headers, 'content-type,if-modified-since,Authorization,Accept'
 set :expose_headers, 'location,link'
 
+get '/' do
+  puts 'from root'
+end
+
+get '/wallet' do
+  puts 'from wallet'
+end
+
 # Ваш маршрут для обработки запроса авторизации
 post '/admin/auth/login' do
   # Здесь ваш код обработки запроса
@@ -134,4 +142,28 @@ get '/admin/users/filters' do
       { label: 'Продукт 4', value: 4 }
     ]
   } }.to_json
+end
+
+get '/admin/tg_channels' do
+  items = (1..5).to_a.map do |tg_channel_id|
+    {
+      id: tg_channel_id,
+      name: "tg_channel_name #{tg_channel_id}",
+      description: (0..(rand 30)).to_a.map { |_i| ' description' }.join,
+      price: 'строка от бэка',
+      active: [true, false].sample
+    }
+  end
+  meta = {
+    # current:,
+    # total: items.count,
+    # page_size:
+  }
+  { items:, meta: }.to_json
+end
+
+post '/admin/tg_channels/:channel_id' do
+  channel_id = params['channel_id']
+  data = JSON.parse(request.body.read)
+  data.to_json
 end

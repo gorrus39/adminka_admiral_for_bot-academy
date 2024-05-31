@@ -5,6 +5,10 @@ const CustomMenu = () => {
     return (
         <Menu>
             <MenuItemLink name="Пользователи" to="/users" icon="FiUser" />
+            <MenuItemLink name="Товары" to="/tg_channels" icon="FiSend" />
+            {/* <MenuItemLink name="Вебинары" to="/webinars" icon="FiSend" /> */}
+            {/* <MenuItemLink name="Товары" to="/tg_channels" icon="FiSend" /> */}
+
             {/*<MenuItemLink name="Targets" to="/targets" icon="FiUser" />        
             <MenuItemLink icon="FiCircle" name="Base CRUD" to="/base-crud" />
             <MenuItemLink icon="FiStar" name="Advanced Edit Page" to="/advanced-edit-page" />

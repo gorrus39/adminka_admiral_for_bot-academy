@@ -1,6 +1,6 @@
 import { Page, Card } from '@devfamily/admiral'
 import React from 'react'
-import './statistics.scss'
+import './index.scss'
 import _ from '@/src/config/request'
 
 const apiUrl = import.meta.env.VITE_API_URL
