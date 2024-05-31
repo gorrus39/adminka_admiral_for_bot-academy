@@ -79,7 +79,7 @@ get '/admin/users' do
   # /admin/users/filters
   items = (1..30).to_a.map do |id|
     {
-      id:,
+      id: id,
       created_at: "строка из бэка #{id}",
       username: "username#{id}",
       amount_payments: "строка от бэка #{id}",
@@ -92,11 +92,11 @@ get '/admin/users' do
   # items.reverse! if params['sort']['order']['created_at'] == 'desc'
 
   meta = {
-    current:,
+    current: current,
     total: items.count,
-    page_size:
+    page_size: page_size
   }
-  { items:, meta: }.to_json
+  { items: items, meta: meta }.to_json
 end
 
 get '/admin/statistics' do
@@ -159,7 +159,7 @@ get '/admin/tg_channels' do
     # total: items.count,
     # page_size:
   }
-  { items:, meta: }.to_json
+  { items: items, meta: meta }.to_json
 end
 
 post '/admin/tg_channels/:channel_id' do
